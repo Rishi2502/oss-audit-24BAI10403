@@ -1,6 +1,6 @@
 #!/bin/bash
 # Script 1: System Identity Report
-# Author: Rishi Prathap | Roll No: 24BAI10045
+# Author: Rishi Prathap | Roll No: 24BAI10403
 
 # --- Variables ---
 STUDENT_NAME="Rishi Prathap"
