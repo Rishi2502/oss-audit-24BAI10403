@@ -1,44 +1,41 @@
 #!/bin/bash
 # Script 2: FOSS Package Inspector
-# Author: Rishi Prathap | Roll No: 24BAI10045
+# Author: Rishi Prathap | Roll No: 24BAI10403
 
 # --- Variable ---
-PACKAGE="kernel"
-
-# --- Get kernel version ---
-KERNEL_VERSION=$(uname -r)
+PACKAGE="git"
 
 echo "======================================="
 echo "   FOSS Package Inspector"
 echo "======================================="
 
-# --- Check kernel ---
-if [ -n "$KERNEL_VERSION" ]; then
-    echo "Linux Kernel is installed."
-    echo "Kernel Version: $KERNEL_VERSION"
-    echo "License: GPL v2"
+# --- Check if package is installed ---
+if dpkg -l | grep -q "$PACKAGE"; then
+    echo "$PACKAGE is installed on this system."
+    echo "Package Details:"
+    dpkg -l | grep "$PACKAGE"
 else
-    echo "Linux Kernel not found."
+    echo "$PACKAGE is NOT installed on this system."
 fi
 
 echo "---------------------------------------"
 
-# --- Description using case ---
+# --- Case statement for description ---
 case $PACKAGE in
-    kernel)
-        echo "Linux Kernel: the core part of OS connecting hardware and software"
-        ;;
     git)
-        echo "Git: distributed version control system used by developers"
+        echo "Git: A distributed version control system used for collaboration."
         ;;
-    python)
-        echo "Python: popular high-level programming language"
+    mysql)
+        echo "MySQL: Open source relational database management system."
         ;;
-    apache)
-        echo "Apache: widely used open-source web server"
+    vlc)
+        echo "VLC: Free and open-source multimedia player."
+        ;;
+    firefox)
+        echo "Firefox: Browser that supports an open web."
         ;;
     *)
-        echo "Unknown package"
+        echo "No information available."
         ;;
 esac
 
